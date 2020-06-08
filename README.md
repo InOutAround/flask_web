@@ -1,2 +1,2 @@
-# flask_wep
-# my first flask wep application server
+# flask_web
+# my first flask webapplication server
