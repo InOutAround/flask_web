@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jinja Test Page</title>
+    <link rel="stylesheet" href = "{{ url_for('static, filename='css/style.css')}}"
+</head>
+<body>
+    <div>Jinja Test : {{title}} - {{mu}}<div>
+
+    <pre>
+        abc
+        efg
+        
+        {{"abc '{ef}' ghi"}}
+
+        {{ "}}>> <strong>Strong</strong>"}} 
+        {{ "<strong>Strong</strong>" | safe}}
+        <hr>
+        {{ "<strong>Strong</strong>" | striptags}}
+        
+        <hr>
+        <pre>
+        {% raw %}
+            {% if True  %}
+                    TTT
+            {% endif %}
+        {% endraw %}
+
+
+        {% if True -%} 
+            TTT 
+        {% endif %}qqq
+        </pre>
+
+        <hr>
+        {% for title, name, isShow in list if not isShow %}
+            <li class = "{{loop.cycle('aaa','bbb','')}}">{{title}} : {{name}} - {{loop.first}}, {{loop.last}},{{loop.revindex}},{{loop.index}}, {{loop.depth}}, {{loop.length}}</li>
+        {% else %}
+            <li>There is no data.</li>
+        {% endfor %}
+
+
+
+    </pre>
+
+</body>
+</html>

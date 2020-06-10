@@ -7,13 +7,13 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Melon Top 100</title>
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <link href="css/mdb.min.css" rel="stylesheet">
+  <link href="static/css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
-  <link href="css/style.min.css" rel="stylesheet">
+  <link href="static/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 
         <!-- Brand -->
         <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-          <strong class="blue-text">Top 100</strong>
+          <strong class="blue-text">Top100</strong>
         </a>
 
         <!-- Collapse -->
@@ -62,18 +62,23 @@
           <!-- Right -->
           <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item">
-              <a href="#" id = "btn-sign-in" class="nav-link waves-effect" data-toggle="modal" data-target="#basicExampleModal">
-                <i class="fas fa-sign-in-alt"></i> Sign-in
+              <a href="#" id="btnSingin" class="nav-link waves-effect" data-toggle="modal" data-target="#basicExampleModal">
+                <i class="fas fa-sign-in-alt"></i> Sign-In
               </a>
             </li>
 
             <li class="nav-item">
+              <a href="#" class="nav-link waves-effect">
+                <i class="fas fa-user"></i> 홍길동
+              </a>
+            </li>
+            <!-- <li class="nav-item">
               <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
                 <i class="fab fa-twitter"></i>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
-              <a href="https://github.com/InOutAround/flask_pyweb" class="nav-link border border-light rounded waves-effect"
+              <a href="https://github.com/indiflex/pyweb" class="nav-link border border-light rounded waves-effect"
                 target="_blank">
                 <i class="fab fa-github mr-2"></i>MDB GitHub
               </a>
@@ -93,36 +98,10 @@
   <main class="mt-5 pt-5">
     <div class="container">
 
-      <!--Section: Jumbotron-->
-      <!-- <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/background3.jpg);"> -->
-
-        <!-- Content -->
-        <!-- <div class="card-body text-white text-center py-5 px-5 my-5">
-
-          <h1 class="mb-4">
-            <strong>Learn Bootstrap 4 with MDB</strong>
-          </h1>
-          <p>
-            <strong>Best & free guide of responsive web design</strong>
-          </p>
-          <p class="mb-4">
-            <strong>The most comprehensive tutorial for the Bootstrap 4. Loved by over 500 000 users. Video and written
-              versions available. Create your own, stunning website.</strong>
-          </p>
-          <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-outline-white btn-lg">Start
-            free tutorial
-            <i class="fas fa-graduation-cap ml-2"></i>
-          </a>
-
-        </div> -->
-        <!-- Content -->
-      <!-- </section> -->
-      <!--Section: Jumbotron-->
-
-      <hr class="my-5">
-
+      <!-- <hr class="my-5"> -->
+      
       <!--Section: Magazine v.1-->
-      <section id = 'magazine' class="wow fadeIn">
+      <section id="magazine" class="wow fadeIn">
 
         <!--Section heading-->
         <h2 class="h1 text-center my-5 font-weight-bold">Melon Top 100</h2>
@@ -131,7 +110,7 @@
         <div class="row text-left">
 
           <!--Grid column-->
-          <div class="col-lg-6 col-md-6"> 
+          <div class="col-lg-6 col-md-6">
 
             <!--Image-->
             <div class="view overlay rounded z-depth-1-half mb-3">
@@ -151,17 +130,17 @@
               </a>
               <p>
                 <strong>
-                  <i class="far fa-clock"></i> 2018/08/20</strong>
+                  <i class="far fa-clock"></i> 2019-02-08</strong>
               </p>
             </div>
             <h3>
               <a>
-                <strong>Monthly Top 100</strong>
+                <strong>Today's Top 100</strong>
               </a>
             </h3>
-            <p> Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
+            <!-- <p> Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
               placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-            </p>
+            </p> -->
 
             <!--/Featured news-->
 
@@ -169,41 +148,41 @@
 
             <!--Small news-->
             <div class="row">
-              <div class="col-md-3">
+              <div class="col-md-2"><h1 class="text-primary">100</h1></div>
+              <div class="col-md-2">
 
                 <!--Image-->
-                <div class="view overlay rounded z-depth-1">
-                  <img src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg" class="img-fluid" alt="Minor sample post image">
+                <div class="view overlay rounded z-depth-1x text-center">
                   <a>
+                  <img src="{{url_for('static', filename='img/test.jpg') }}" class="img-fluid w-100" alt="Minor sample post image">
                     <div class="mask rgba-white-slight"></div>
                   </a>
                 </div>
               </div>
 
               <!--Excerpt-->
-              <div class="col-md-9">
+              <div class="col-md-8">
                 <p class="dark-grey-text">
-                  <strong>19/08/2018</strong>
+                  <strong>넘쳐흘러</strong> - 엠시더맥스
                 </p>
-                <a><small class="text-muted"><i class="fas fa-compact-disc"></i>Lorem ipsum dolor sit amet</small>
-                  <i class="fas fa-angle-right float-right"></i>
+                <a><small class="text-muted"><i class="fas fa-compact-disc"></i> Circular</small>
+                  <i class="fas fa-angle-left float-right"></i>
                 </a>
               </div>
 
             </div>
-            <div class = "row">
+
+            <div class="row">
               <div class="col-2"></div>
               <div class="col">
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><i class="fas fa-pen text-muted"></i>
-                      <strong class="float-right">홍길동</strong></li>
-                  <li class="list-group-item"><small class="text-muted">작사</small><strong class="float-right">홍길동</strong></li>
-                  <li class="list-group-item"><small class="text-muted">작사</small><strong class="float-right">홍길동</strong></li>
-                  <li class="list-group-item"><small class="text-muted">작사</small><strong class="float-right">홍길동</strong></li>
+                  <li class="list-group-item"><i class="far fa-thumbs-up text-muted"></i> <strong class="float-right">홍길동</strong></li>
+                  <li class="list-group-item"><small class="text-muted">작사</small> <strong class="float-right">홍길동</strong></li>
+                  <li class="list-group-item"><small class="text-muted">작사</small> <strong class="float-right">홍길동</strong></li>
                 </ul>
               </div>
-
             </div>
+
             <!--/Small news-->
 
             <hr>
@@ -280,18 +259,18 @@
             <div class="news-data">
               <a href="" class="light-blue-text">
                 <h6>
-                  <i class="fas fa-music"></i>
-                  <strong> Songs</strong>
+                  <i class="fas fa-plane"></i>
+                  <strong> Travels</strong>
                 </h6>
               </a>
               <p>
                 <strong>
-                  <i class="far fa-clock"></i> 2019-02-19</strong>
+                  <i class="far fa-clock"></i> 20/08/2018</strong>
               </p>
             </div>
             <h3>
               <a>
-                <strong>Today's Top 100</strong>
+                <strong>This is title of the news</strong>
               </a>
             </h3>
             <p> Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime
@@ -454,7 +433,7 @@
 
     <!--Copyright-->
     <div class="footer-copyright py-3">
-      © 2019 Copyright:
+      © 2018 Copyright:
       <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
     </div>
     <!--/.Copyright-->
@@ -468,52 +447,56 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalLabel"><i class="fas fa-sign-in-alt"></i><strong> Sign In</strong></h3>
+          <h3 class="modal-title" id="exampleModalLabel"><strong><i class="fas fa-sign-in-alt"></i> Sign In</strong></h3>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <!-- Default form login -->
-          <form class="text-center border border-light p-5" action="#!">
-
-            <p class="h4 mb-4">Sign in</p>
-
+          <form class="text-center border border-light p-5">
+          
+            <p class="h4 mb-4"><strong>Sign In</strong></p>
+          
             <!-- Email -->
             <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
+          
             <!-- Password -->
             <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
+          
             <div class="d-flex justify-content-around">
-                <div>
-                    <!-- Remember me -->
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                        <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-                    </div>
+              <div>
+                <!-- Remember me -->
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                  <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
                 </div>
-                <div>
-                    <!-- Forgot password -->
-                    <a href="">Forgot password?</a>
-                </div>
+              </div>
+              <div>
+                <!-- Forgot password -->
+                <a href="">Forgot password?</a>
+              </div>
             </div>
-
+          
             <!-- Sign in button -->
             <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-
+          
             <!-- Register -->
             <p>Not a member?
-                <a href="">Register</a>
+              <a href="">Register</a>
             </p>
           </form>
+          <!-- Default form login -->
         </div>
+        <!-- <div class="modal-footer">
+        </div> -->
       </div>
     </div>
   </div>
+
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
@@ -524,8 +507,10 @@
   <script type="text/javascript">
     // Animations initialization
     new WOW().init();
+
     // $(document).ready
-    // $('#basicExampleModal').modal('show');
+    $('#basicExampleModal').modal('show');
+
   </script>
 </body>
 
