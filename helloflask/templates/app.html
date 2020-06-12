@@ -3,7 +3,7 @@
 {% from "macro/test.html" import test_macro %}
 
 {% block test %}
-<form class = "container">
+<form class="container">
     <div>
         {{radio('r1','rdo','val1','value1')}}
         {{radio('r2','rdo','val2','value1', "checked")}}
@@ -15,10 +15,16 @@
     {{textarea('idta', 'content')}}
 
     {{checkbox(dict(id = "chk1", name = "chkname1", checked = "checked", text = "TEXT"))}}
+
+    {{select([dict(id = "selid1",text = "seltext1",selected = False),dict(id = "selid2",text = "seltext2",selected = true)])}}
 </form>
-
+    <button type='button' onclick="openModal('mdl1')" class= "btn btn-primary">Open madal Test</button>
+    {% call modal("mdl1","테스트 모달","fas fa-users",True, "alert('1111')") %}
+        <h3>Modal body</h3>
+    {% endcall %}
+    
 {% endblock %}
-
+    
 
 {% block main %}
 <!--Section: Magazine v.1-->
@@ -36,7 +42,7 @@
             <h3><a><strong>Live Top 100</strong></a></h3>
 
             {% for s in lives %}
-                {{song(s)}}
+            {{song(s)}}
             {% endfor %}
             <!--/Small news-->
 
@@ -65,13 +71,15 @@
         console.log("url>>", url, songno)
         // url, method, data, dataType, fn
         var $star = $('#star-' + songno);
-        send_ajax(url, 'POST', {songno: songno}, 'json', function (res) {
+        send_ajax(url, 'POST', {
+            songno: songno
+        }, 'json', function (res) {
             console.log("res>>", res, res.result, res.result === 'OK')
             if (res && res.result === 'OK') {
                 console.log("----------------", $star)
                 $star.removeClass('far').addClass('fas');
             }
-        }); 
+        });
     }
 
     function openSongInfo(songno) {
@@ -80,14 +88,11 @@
         // url, method, data, dataType, fn
         var $songinfo = $('#' + songno);
         $('.songinfo').css('display', 'none');
-        send_ajax(url, 'GET', '', '', function(res) {
+        send_ajax(url, 'GET', '', '', function (res) {
             console.log("res>>", res)
             $songinfo.html(res);
             $songinfo.css('display', 'block');
         });
     }
-
-        
-    
 </script>
 {% endblock %}

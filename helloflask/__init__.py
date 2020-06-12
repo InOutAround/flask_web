@@ -20,9 +20,39 @@ app.config.update(
 )
 
 
+@app.template_filter('ymd')
+def datetime_ymd(dt, fmt='%m-%d'):
+    if isinstance(dt,date):
+        return dt.strftime(fmt)
+    else:
+        return dt    
+
+@app.template_filter('simpledate')
+def simpledate(dt):
+    if not isinstance(dt,date):
+        dt = datetime.strptime(dt, "%Y-%M-%d %H:%m")
+
+    if (datetime.now() - dt).days < 1:
+        fmt = "%H:%M"
+    else:
+        fmt = "%M/%d"
+
+    return "<strong>%s</strong>"
+
 @app.route('/')
 def idx():
-    return render_template('app.html', title = "main!!")
+    rds = []
+    for i in [1,2,3]:
+        id = 'r' + str(i)
+        name = 'radiotest'
+        value = i
+        checked = ''
+        if i == 2:
+            checked = 'checked'
+        text = 'RadioTest' + str(i)
+        rds.append( FormInput(id, name, value, checked, text))
+        today = date.today()
+    return render_template('app.html', title = "testtttt9999",radiosList = rds, today = today )
 
 
 

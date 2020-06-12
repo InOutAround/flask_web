@@ -56,17 +56,18 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ url_for('static', filename='js/mdb.min.js')}}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/handlebars.js')}}"></script>
-    
+
     <!-- Initializations -->
     <script type="text/javascript">
         // Animations initialization
         new WOW().init();
 
         // $(document).ready
-        
+
         function openModal(modalId) {
             $('#' + modalId).modal('show');
         }
+
         function closeModal(modalId) {
             $('#' + modalId).modal('hide');
         }
@@ -111,7 +112,7 @@
                     console.log("res>>", res)
                     if (!res || !res.length) return;
 
-                    res.forEach( function(r) {
+                    res.forEach(function (r) {
                         console.log("rrrr>>", r.songno)
                         $('#star-' + r.songno).removeClass('far').addClass('fas');
                     });
